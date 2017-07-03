@@ -2079,8 +2079,8 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                     LogTag = "FTBuyMap";
                 }
                 if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10) {
-                    Log.e(TAG, LogTag+"position: " + learnResultStr2);
-                    Log.e(TAG, "num: " + learnResultStr3);
+                    Log.e(TAG, LogTag + "\n" + "position: " + "\n" + learnResultStr2);
+                    Log.e(TAG, "num: " + "\n" + learnResultStr3);
                 }
 //                if (!DANGER) {
 //                    if (IS_SC) {
