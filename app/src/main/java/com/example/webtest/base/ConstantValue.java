@@ -32,8 +32,11 @@ public interface ConstantValue {
     public int TYPE_BLANK_15 = 201115;
     public int TYPE_BLANK_10 = 201110;
 
-    public int EARN_PART = 350;
-    public int BEGIN_PART = 500;
+//    public int EARN_PART = 350;
+//    public int BEGIN_PART = 500;
+
+    public int EARN_PART = 10;
+    public int BEGIN_PART = 50;
 
     //    public String webUrl = "https://www.sx67.com/";
 //    public String webUrl = "https://www.sx67.com/mobile/#home/";

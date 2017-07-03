@@ -585,8 +585,8 @@ public class WA_YundaFragment extends WA_BaseFragment {
                 Log.d(TAG, "getMethodPosition: " + position);
 
 
-//                int money = 1;
-                int money = fiboArr[position];
+                int money = 1;
+//                int money = fiboArr[position];
                 if (i % 2 == 0) {
                     money = money * 2;
                 }
