@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WebTest</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="AutoDeal">AutoDeal</string>
+    <string name="custom">custom</string>
+    <string name="line">************************</string>
+    <string name="splitNum">数字：</string>
+
+</resources>
