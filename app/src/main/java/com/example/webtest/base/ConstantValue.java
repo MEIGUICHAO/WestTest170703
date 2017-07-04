@@ -7,9 +7,9 @@ package com.example.webtest.base;
 public interface ConstantValue {
 
 
-    public int autoSame20 = 20;
-    public int autoSame15 = 20;
-    public int autoSame10 = 20;
+    public int autoSame20 = 15;
+    public int autoSame15 = 15;
+    public int autoSame10 = 15;
     public int autoCustomSame20 = 20;
     public int autoCustomSame15 = 20;
     public int autoCustomSame10 = 20;
@@ -32,15 +32,15 @@ public interface ConstantValue {
     public int TYPE_BLANK_15 = 201115;
     public int TYPE_BLANK_10 = 201110;
 
-//    public int EARN_PART = 350;
-//    public int BEGIN_PART = 500;
+    public int EARN_PART = 350;
+    public int BEGIN_PART = 500;
 
-    public int EARN_PART = 10;
-    public int BEGIN_PART = 50;
+//    public int EARN_PART = 10;
+//    public int BEGIN_PART = 50;
 
     //    public String webUrl = "https://www.sx67.com/";
 //    public String webUrl = "https://www.sx67.com/mobile/#home/";
-    public int BIGGER_INT = 35;
+    public int BIGGER_INT = 45;
     public String webUrl = "https://www.sx789.com/";
 //    public String webUrl = "https://www.sx5566.com/mobile/#home/";
 //    public String webUrl = "";

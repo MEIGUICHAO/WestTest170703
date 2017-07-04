@@ -228,7 +228,6 @@ public class WA_YundaFragment extends WA_BaseFragment {
 
     }
 
-    //TODO
 
     /**
      * 点击进入搜索页面(主页面)
@@ -585,8 +584,9 @@ public class WA_YundaFragment extends WA_BaseFragment {
                 Log.d(TAG, "getMethodPosition: " + position);
 
 
-                int money = 1;
-//                int money = fiboArr[position];
+                //TODO
+//                int money = 1;
+                int money = fiboArr[position];
                 if (i % 2 == 0) {
                     money = money * 2;
                 }
@@ -616,7 +616,6 @@ public class WA_YundaFragment extends WA_BaseFragment {
         switch (typeBlank) {
 
             case ConstantValue.TYPE_BLANK_20:
-                //TODO
                 sameInt = ConstantUtils.autoSame20;
                 break;
             case ConstantValue.TYPE_BLANK_15:

@@ -1942,7 +1942,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
     }
 
     private void autoDealMethod() {
-        if (IS_SC && !DateUtils.isInRange(9, 0, 23, 59)) {
+        if (IS_SC && !DateUtils.isInRange(9, 10, 23, 59)) {
             if (DateUtils.isInRange(0, 1, 0, 10)) {
                 etDate.setText(DateUtils.getToDay());
             }
