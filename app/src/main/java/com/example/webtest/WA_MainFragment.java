@@ -1046,7 +1046,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                     buyDifList.add(sortStr[j]);
                 }
             } else {
-                if (mInts[length - 1] >= ConstantValue.BIGGER_INT) {
+                if (mInts[length - 1] >= beginInt) {
                     allCount = allCount + 2;
                     for (int j = length - 1; j >= length - 2; j--) {
                         if (IsSamePositon) {
@@ -1977,7 +1977,8 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         setDealData(0, ConstantValue.autoSame20 + "", ConstantValue.autoSame15 + "", ConstantValue.autoSame10 + "", false, ConstantValue.ClassCoordinate);
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoSame20 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 0);
 //        delayDeal(ConstantValue.autoBlank15, ConstantValue.autoSame15 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_15), ConstantValue.TYPE_BLANK_15, 16);
-        delayDeal(ConstantValue.autoBlank10, ConstantValue.autoSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 2);
+        delayDeal(ConstantValue.BIGGER_INT,ConstantValue.autoBlank10, ConstantValue.autoSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 2);
+        delayDeal(ConstantValue.BEGIN_INT,ConstantValue.autoBlank10, ConstantValue.autoCustomSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 20);
 //        setDealData(48, ConstantValue.autoCustomSame20 + "", ConstantValue.autoCustomSame15 + "", ConstantValue.autoCustomSame10 + "", true, ConstantValue.ClassCoordinate);
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoCustomSame20 + ConstantUtils.getFabInt(IS_SC, true, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 50);
 //        delayDeal(ConstantValue.autoBlank15, ConstantValue.autoCustomSame15 + ConstantUtils.getFabInt(IS_SC, true, ConstantValue.TYPE_BLANK_15), ConstantValue.TYPE_BLANK_15, 66);
@@ -2000,7 +2001,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         }, time * 1000);
     }
 
-    private void delayDeal(final int blank, final int samem, final int type, final int time) {
+    private void delayDeal(final int beginInt, final int blank, final int samem, final int type, final int time) {
         UIUtils.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -2017,11 +2018,11 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                             }
 
                             Log.e(TAG, "checkDangerAllCount: " + allCount);
-                            dealType(0, blank, samem, type);
+                            dealType(0, blank, samem, type,beginInt);
                         }
                     }, 2000);
                 } else {
-                    dealType(0, blank, samem, type);
+                    dealType(0, blank, samem, type,beginInt);
                 }
             }
         }, time * 1000);
@@ -2047,7 +2048,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
     }
 
 
-    private void dealType(final int time, int blank, final int same, final int blanktype) {
+    private void dealType(final int time, int blank, final int same, final int blanktype, int mBeginInt) {
         if (mList.size() < 1) {
             UIUtils.postDelayed(new Runnable() {
                 @Override
@@ -2061,6 +2062,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         etBlank.setText(blank + "");
         etSame.setText(same + "");
         etDif.setText("100");
+        this.beginInt = mBeginInt;
         UIUtils.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -2071,7 +2073,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         UIUtils.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.e(TAG, "time: " + blanktype + "-----" + "allCount:" + allCount + "-----" + "same:" + same);
+                Log.e(TAG, "time: " + blanktype + "-----" + "allCount:" + allCount + "-----" + "same:" + same + "beginInt:" + beginInt);
                 Log.e(TAG, "checkDanger: " + DANGER);
                 if (IS_SC) {
                     LogTag = "SCBuyMap";
@@ -2079,7 +2081,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                     LogTag = "FTBuyMap";
                 }
                 if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10) {
-                    Log.e(TAG, LogTag + "\n" + "position: " + "\n" + learnResultStr2 + "num: " + "\n" + learnResultStr3);
+                    Log.e(TAG, LogTag + "---beginInt:" + beginInt+ "\n" + "position: " + "\n" + learnResultStr2 + "num: " + "\n" + learnResultStr3);
 //                    Log.e(TAG, "num: " + "\n" + learnResultStr3);
                 }
 //                if (!DANGER) {

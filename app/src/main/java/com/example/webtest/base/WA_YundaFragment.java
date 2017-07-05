@@ -60,6 +60,8 @@ public class WA_YundaFragment extends WA_BaseFragment {
     protected double END_AMOUMT;
     private String completeJs;
     protected int allCount;
+    protected int beginInt = ConstantValue.BIGGER_INT;
+
 
 
 
@@ -889,7 +891,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
                 CAN_PAY = false;
                 COMPARE_BEGIN = true;
             }
-            Log.e(TAG, "JI_LOG: " + content + ",BEGIN_AMOUMT:" + BEGIN_AMOUMT + ",allCount:" + allCount);
+            Log.e(TAG, "JI_LOG: " + content + ",BEGIN_AMOUMT:" + BEGIN_AMOUMT + ",allCount:" + allCount + ",beginInt:" + beginInt);
 
             if (!TextUtils.isEmpty(content)) {
                 CacheUtils.putCache(getActivity(), "BEGIN_AMOUMT", content + ",BEGIN_AMOUMT:" + BEGIN_AMOUMT);
@@ -917,7 +919,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
             if ((COMPARE_AMOUMT - bigDeimal.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue()) > ConstantValue.BEGIN_PART&&!CAN_PAY) {
                 SET_BEGIN_AMOUNT = true;
             }
-            Log.e(TAG, "JI_LOG: " + content + ",COMPARE_AMOUMT:" + COMPARE_AMOUMT + ",allCount:" + allCount);
+            Log.e(TAG, "JI_LOG: " + content + ",COMPARE_AMOUMT:" + COMPARE_AMOUMT + ",allCount:" + allCount + ",beginInt:" + beginInt);
             if (!TextUtils.isEmpty(content)) {
                 CacheUtils.putCache(getActivity(), "COMPARE_AMOUMT", content + ",COMPARE_AMOUMT:" + COMPARE_AMOUMT);
             }

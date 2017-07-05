@@ -25,7 +25,7 @@ public interface ConstantValue {
     //blank
     public int autoBlank20 = 20;
     public int autoBlank15 = 15;
-    public int autoBlank10 = 10;
+    public int autoBlank10 = 20;
 
     //类型
     public int TYPE_BLANK_20 = 201120;
@@ -40,7 +40,8 @@ public interface ConstantValue {
 
     //    public String webUrl = "https://www.sx67.com/";
 //    public String webUrl = "https://www.sx67.com/mobile/#home/";
-    public int BIGGER_INT = 45;
+    public int BIGGER_INT = 50;
+    public int BEGIN_INT = 45;
     public String webUrl = "https://www.sx789.com/";
 //    public String webUrl = "https://www.sx5566.com/mobile/#home/";
 //    public String webUrl = "";
