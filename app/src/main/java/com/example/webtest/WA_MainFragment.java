@@ -1978,7 +1978,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoSame20 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 0);
 //        delayDeal(ConstantValue.autoBlank15, ConstantValue.autoSame15 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_15), ConstantValue.TYPE_BLANK_15, 16);
         delayDeal(ConstantValue.BIGGER_INT,ConstantValue.autoBlank10, ConstantValue.autoSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 2);
-        delayDeal(ConstantValue.BEGIN_INT,ConstantValue.autoBlank10, ConstantValue.autoCustomSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 20);
+//        delayDeal(ConstantValue.BEGIN_INT,ConstantValue.autoBlank10, ConstantValue.autoCustomSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 20);
 //        setDealData(48, ConstantValue.autoCustomSame20 + "", ConstantValue.autoCustomSame15 + "", ConstantValue.autoCustomSame10 + "", true, ConstantValue.ClassCoordinate);
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoCustomSame20 + ConstantUtils.getFabInt(IS_SC, true, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 50);
 //        delayDeal(ConstantValue.autoBlank15, ConstantValue.autoCustomSame15 + ConstantUtils.getFabInt(IS_SC, true, ConstantValue.TYPE_BLANK_15), ConstantValue.TYPE_BLANK_15, 66);
@@ -2080,8 +2080,8 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 } else {
                     LogTag = "FTBuyMap";
                 }
-                if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10) {
-                    Log.e(TAG, LogTag + "---beginInt:" + beginInt+ "\n" + "position: " + "\n" + learnResultStr2 + "num: " + "\n" + learnResultStr3);
+                if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10 && !TextUtils.isEmpty(learnResultStr2) && !TextUtils.isEmpty(learnResultStr3)) {
+                    Log.e(TAG, LogTag + "---beginInt:" + beginInt + "\n" + "position: " + "\n" + learnResultStr2 + "num: " + "\n" + learnResultStr3);
 //                    Log.e(TAG, "num: " + "\n" + learnResultStr3);
                 }
 //                if (!DANGER) {
