@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
         strTime = sdf.format(new Date(System.currentTimeMillis()));
         WA_MainFragment.start(MainActivity.this, R.id.container);
 
+        moveTaskToBack(true);
 
         powerManager = (PowerManager) this.getSystemService(Service.POWER_SERVICE);
         wakeLock = this.powerManager.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My Lock");

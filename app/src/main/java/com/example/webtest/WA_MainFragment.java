@@ -934,7 +934,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                         if (!TextUtils.isEmpty(originalMap.get(i * 10 + j))) {
                             resultStr = resultStr + originalMap.get(i * 10 + j) +
                                     "----------------------------------------" + "\n";
-                            if (baseMap.get(i * 10 + j) >= numDif) {
+                            if (baseMap.get(i * 10 + j) >= numDif && baseMap.get(i * 10 + j) <= numDif) {
                                 difList.add(originalMap.get(i * 10 + j));
                             }
 
@@ -993,7 +993,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 }
 
 
-                if (difList.size() >= 3) {
+                if (difList.size() >= 1) {
                     learnResultStr2 = learnResultStr2 + "\n" + "不同位置:" + "\n";
                     getBlankBuyResult(difList, false, true);
 //                    for (int i = 0; i < difList.size(); i++) {
@@ -1005,7 +1005,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 
                 learnResultStr4 = "allCount:" + allCount + "      allNum:" + glMap.size();
 
-                if (difList.size() >= 2) {
+                if (difList.size() >= 1) {
                     learnResultStr3 = learnResultStr3 + "\n" + "不同位置:" + "\n";
                     for (int i = 0; i < difList.size(); i++) {
                         learnResultStr3 = learnResultStr3 + difList.get(i) + "\n" + UIUtils.getString(R.string.line) + "\n";
@@ -2035,7 +2035,8 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 
         etBlank.setText(10 + "");
         etSame.setText(ConstantValue.autoSame10 + "");
-        etDif.setText("100");
+        etDif.setText(ConstantValue.difBlank + "");
+
         onClick(btnCaculate);
     }
 
@@ -2061,7 +2062,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         cTerm = mList.get(0).getCTerm();
         etBlank.setText(blank + "");
         etSame.setText(same + "");
-        etDif.setText("100");
+        etDif.setText(ConstantValue.difBlank + "");
         this.beginInt = mBeginInt;
         UIUtils.postDelayed(new Runnable() {
             @Override

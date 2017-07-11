@@ -317,6 +317,10 @@ public class WA_YundaFragment extends WA_BaseFragment {
         int[] smarllerInts = sortIntList(smallerList);
         int[] smarllerFifInts = sortIntList(smallerDifList);
 
+        if (buydiflist.size() > 0) {
+            getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
+            logicStr = logicStr + "commitData(1000);";
+        }
         if (buyPositionList.size() > 0) {
             if (ConstantUtils.isCUSTOM()) {
                 getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
@@ -587,11 +591,11 @@ public class WA_YundaFragment extends WA_BaseFragment {
 
 
                 //TODO
-//                int money = 1;
-                int money = fiboArr[position];
-                if (i % 2 == 0) {
-                    money = money * 2;
-                }
+                int money = 1;
+//                int money = fiboArr[position];
+//                if (i % 2 == 0) {
+//                    money = money * 2;
+//                }
 
                 logicStr = logicStr + "selectNumRange(" + num + "," + money + "," + time + ");";
 //                if (i % 2 == 0) {

@@ -10,6 +10,7 @@ public interface ConstantValue {
     public int autoSame20 = 15;
     public int autoSame15 = 15;
     public int autoSame10 = 15;
+    public int difBlank = 15;
     public int autoCustomSame20 = 20;
     public int autoCustomSame15 = 20;
     public int autoCustomSame10 = 20;
@@ -25,7 +26,7 @@ public interface ConstantValue {
     //blank
     public int autoBlank20 = 20;
     public int autoBlank15 = 15;
-    public int autoBlank10 = 20;
+    public int autoBlank10 = 25;
 
     //类型
     public int TYPE_BLANK_20 = 201120;
