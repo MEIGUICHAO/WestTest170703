@@ -2081,10 +2081,10 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 } else {
                     LogTag = "FTBuyMap";
                 }
-                if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10 && !TextUtils.isEmpty(learnResultStr2) && !TextUtils.isEmpty(learnResultStr3)) {
-                    Log.e(TAG, LogTag + "---beginInt:" + beginInt + "\n" + "position: " + "\n" + learnResultStr2 + "num: " + "\n" + learnResultStr3);
+//                if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10 && !TextUtils.isEmpty(learnResultStr2) && !TextUtils.isEmpty(learnResultStr3)) {
 //                    Log.e(TAG, "num: " + "\n" + learnResultStr3);
-                }
+//                }
+                Log.e(TAG, LogTag + "---difBlank:" + ConstantValue.difBlank + "---difEndBlank:" + ConstantValue.difEndBlank + "\n" + learnResultStr2 + "\n" + learnResultStr3);
 //                if (!DANGER) {
 //                    if (IS_SC) {
 //                        if (allCount > ConstantValue.BeginCoordinate) {
