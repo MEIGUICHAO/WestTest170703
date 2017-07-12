@@ -7,9 +7,9 @@ package com.example.webtest.base;
 public interface ConstantValue {
 
 
-    public int autoSame20 = 15;
-    public int autoSame15 = 15;
-    public int autoSame10 = 15;
+    public int autoSame20 = 100;
+    public int autoSame15 = 100;
+    public int autoSame10 = 100;
     public int difBlank = 15;
     public int autoCustomSame20 = 20;
     public int autoCustomSame15 = 20;

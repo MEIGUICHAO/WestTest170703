@@ -318,7 +318,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
         int[] smarllerFifInts = sortIntList(smallerDifList);
 
         if (buydiflist.size() > 0) {
-            getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
+            getMethod(buydiflist, amount, "100", IS_Auto, typeBlank, 0, true);
             logicStr = logicStr + "commitData(1000);";
         }
         if (buyPositionList.size() > 0) {
@@ -571,27 +571,27 @@ public class WA_YundaFragment extends WA_BaseFragment {
 //                int money = Integer.parseInt(myAmount);
 //
                 int position = 0;
-                if (isPosition) {
-                    if (IS_SC) {
-                        position = buyPositionAcountMap.get(buyPositionList.get(i));
-                    } else {
-                        position = buyFtPositionAcountMap.get(buyPositionList.get(i));
-                    }
-                    Log.d(TAG, "getMethod: " + buyPositionList.get(i));
-                } else {
-                    if (IS_SC) {
-                        position = buyNumAcountMap.get(buyPositionList.get(i));
-                    } else {
-                        position = buyFtNumAcountMap.get(buyPositionList.get(i));
-
-                    }
-                    Log.d(TAG, "getMethod: " + buyPositionList.get(i));
-                }
+//                if (isPosition) {
+//                    if (IS_SC) {
+//                        position = buyPositionAcountMap.get(buyPositionList.get(i));
+//                    } else {
+//                        position = buyFtPositionAcountMap.get(buyPositionList.get(i));
+//                    }
+//                    Log.d(TAG, "getMethod: " + buyPositionList.get(i));
+//                } else {
+//                    if (IS_SC) {
+//                        position = buyNumAcountMap.get(buyPositionList.get(i));
+//                    } else {
+//                        position = buyFtNumAcountMap.get(buyPositionList.get(i));
+//
+//                    }
+//                    Log.d(TAG, "getMethod: " + buyPositionList.get(i));
+//                }
                 Log.d(TAG, "getMethodPosition: " + position);
 
 
                 //TODO
-                int money = 1;
+                int money = 10;
 //                int money = fiboArr[position];
 //                if (i % 2 == 0) {
 //                    money = money * 2;

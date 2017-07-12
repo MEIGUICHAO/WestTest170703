@@ -934,7 +934,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                         if (!TextUtils.isEmpty(originalMap.get(i * 10 + j))) {
                             resultStr = resultStr + originalMap.get(i * 10 + j) +
                                     "----------------------------------------" + "\n";
-                            if (baseMap.get(i * 10 + j) >= numDif && baseMap.get(i * 10 + j) <= numDif) {
+                            if (baseMap.get(i * 10 + j) >= numDif && baseMap.get(i * 10 + j) <= (numDif + 5)) {
                                 difList.add(originalMap.get(i * 10 + j));
                             }
 
@@ -996,21 +996,21 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 if (difList.size() >= 1) {
                     learnResultStr2 = learnResultStr2 + "\n" + "不同位置:" + "\n";
                     getBlankBuyResult(difList, false, true);
-//                    for (int i = 0; i < difList.size(); i++) {
-//                        learnResultStr2 = learnResultStr2 + difList.get(i) + "\n" + UIUtils.getString(R.string.line) + "\n";
-//                        buyDifList.add(difList.get(i));
-//                    }
-//                    allCount = allCount + difList.size();
+                    for (int i = 0; i < difList.size(); i++) {
+                        learnResultStr2 = learnResultStr2 + difList.get(i) + "\n" + UIUtils.getString(R.string.line) + "\n";
+                        buyDifList.add(difList.get(i));
+                    }
+                    allCount = allCount + difList.size();
                 }
 
                 learnResultStr4 = "allCount:" + allCount + "      allNum:" + glMap.size();
 
-                if (difList.size() >= 1) {
-                    learnResultStr3 = learnResultStr3 + "\n" + "不同位置:" + "\n";
-                    for (int i = 0; i < difList.size(); i++) {
-                        learnResultStr3 = learnResultStr3 + difList.get(i) + "\n" + UIUtils.getString(R.string.line) + "\n";
-                    }
-                }
+//                if (difList.size() >= 1) {
+//                    learnResultStr3 = learnResultStr3 + "\n" + "不同位置:" + "\n";
+//                    for (int i = 0; i < difList.size(); i++) {
+//                        learnResultStr3 = learnResultStr3 + difList.get(i) + "\n" + UIUtils.getString(R.string.line) + "\n";
+//                    }
+//                }
 
                 Message message = myHandler.obtainMessage();
                 message.what = SET_TEXT_RESULT;
@@ -1942,7 +1942,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
     }
 
     private void autoDealMethod() {
-        if (IS_SC && !DateUtils.isInRange(9, 10, 23, 59)) {
+        if (IS_SC && !DateUtils.isInRange(9, 02, 23, 59)) {
             if (DateUtils.isInRange(0, 1, 0, 10)) {
                 etDate.setText(DateUtils.getToDay());
             }
@@ -1950,7 +1950,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 
             return;
         } else if (!IS_SC) {
-            if (!DateUtils.isInRange(13, 0, 23, 59) && !DateUtils.isInRange(0, 0, 4, 10)) {
+            if (!DateUtils.isInRange(13, 0, 23, 59) && !DateUtils.isInRange(0, 0, 4, 04)) {
                 Log.e(TAG, "ftRange not");
                 return;
             }
