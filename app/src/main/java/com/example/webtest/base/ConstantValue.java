@@ -11,6 +11,7 @@ public interface ConstantValue {
     public int autoSame15 = 100;
     public int autoSame10 = 100;
     public int difBlank = 15;
+    public int difEndBlank = 19;
     public int autoCustomSame20 = 20;
     public int autoCustomSame15 = 20;
     public int autoCustomSame10 = 20;
