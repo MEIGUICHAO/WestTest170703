@@ -10,8 +10,9 @@ public interface ConstantValue {
     public int autoSame20 = 100;
     public int autoSame15 = 100;
     public int autoSame10 = 100;
-    public int difBlank = 15;
-    public int difEndBlank = 17;
+    public int difBlank = 28;
+    public int difEndBlank = 50;
+    public int difBeginCount = 5;
     public int autoCustomSame20 = 20;
     public int autoCustomSame15 = 20;
     public int autoCustomSame10 = 20;
@@ -44,9 +45,9 @@ public interface ConstantValue {
 //    public String webUrl = "https://www.sx67.com/mobile/#home/";
     public int BIGGER_INT = 50;
     public int BEGIN_INT = 45;
-    public String webUrl = "https://www.sx789.com/";
+//    public String webUrl = "https://www.sx789.com/";
 //    public String webUrl = "https://www.sx5566.com/mobile/#home/";
-//    public String webUrl = "";
+    public String webUrl = "";
 
 
 }

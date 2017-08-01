@@ -993,7 +993,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 }
 
 
-                if (difList.size() >= 1) {
+                if (difList.size() > ConstantValue.difBeginCount) {
                     learnResultStr2 = learnResultStr2 + "\n" + "不同位置:" + "\n";
                     getBlankBuyResult(difList, false, true);
                     for (int i = 0; i < difList.size(); i++) {
