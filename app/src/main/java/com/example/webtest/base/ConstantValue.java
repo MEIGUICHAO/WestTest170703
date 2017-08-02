@@ -13,21 +13,17 @@ public interface ConstantValue {
     public int difBlank = 28;
     public int difEndBlank = 50;
     public int difBeginCount = 5;
-    public int autoCustomSame20 = 20;
-    public int autoCustomSame15 = 20;
-    public int autoCustomSame10 = 20;
     public int AllCountCoordinate = 1;
     public int ClassCoordinate = 7;
-    public int CustomCoordinate = 3;
     public int fabMax = 6;
+    public int Amount = 10;
 
-    public int BeginCoordinate = 0;
-    public int EndCoordinate = 100;
+    public int scPosition = 1;
+    public int ftPosition = 3;
+
     public int dangerCoordinnate = 100;
 
     //blank
-    public int autoBlank20 = 20;
-    public int autoBlank15 = 15;
     public int autoBlank10 = 25;
 
     //类型
@@ -45,9 +41,9 @@ public interface ConstantValue {
 //    public String webUrl = "https://www.sx67.com/mobile/#home/";
     public int BIGGER_INT = 50;
     public int BEGIN_INT = 45;
-//    public String webUrl = "https://www.sx789.com/";
+    public String webUrl = "https://www.sx789.com/";
 //    public String webUrl = "https://www.sx5566.com/mobile/#home/";
-    public String webUrl = "";
+//    public String webUrl = "";
 
 
 }

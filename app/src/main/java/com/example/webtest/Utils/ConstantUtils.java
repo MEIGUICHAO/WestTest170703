@@ -27,15 +27,7 @@ public class ConstantUtils {
         IS_SC = isSc;
     }
 
-    public static boolean isCUSTOM() {
-        return CUSTOM;
-    }
 
-    public static void setCUSTOM(boolean CUSTOM) {
-        ConstantUtils.CUSTOM = CUSTOM;
-    }
-
-    public static boolean CUSTOM = false;
 
     //blank
     public static int autoBlank20 = 20;

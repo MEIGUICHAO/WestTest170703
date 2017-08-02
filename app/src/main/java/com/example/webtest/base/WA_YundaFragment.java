@@ -61,6 +61,13 @@ public class WA_YundaFragment extends WA_BaseFragment {
     private String completeJs;
     protected int allCount;
     protected int beginInt = ConstantValue.BIGGER_INT;
+    protected int scPosition = ConstantValue.scPosition;
+    protected int ftPosition = ConstantValue.ftPosition;
+
+    protected int difBeginNum = ConstantValue.difBlank;
+    protected int difEndNum = ConstantValue.difEndBlank;
+    protected int difBeginCount = ConstantValue.difBeginCount;
+    protected int BuyAmount = ConstantValue.Amount;
 
 
 
@@ -322,19 +329,11 @@ public class WA_YundaFragment extends WA_BaseFragment {
             logicStr = logicStr + "commitData(1000);";
         }
         if (buyPositionList.size() > 0) {
-            if (ConstantUtils.isCUSTOM()) {
-                getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
-            } else {
-                getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
-            }
+            getMethod(buyPositionList, amount, "100", IS_Auto, typeBlank, 0, true);
             logicStr = logicStr + "commitData(1000);";
         }
         if (buyNumList.size() > 0) {
-            if (ConstantUtils.isCUSTOM()) {
-                getMethod(buyNumList, amount, "3500", IS_Auto, typeBlank, 0, false);
-            } else {
-                getMethod(buyNumList, amount, "3500", IS_Auto, typeBlank, 0, false);
-            }
+            getMethod(buyNumList, amount, "3500", IS_Auto, typeBlank, 0, false);
             logicStr = logicStr + "commitData(4500);";
         }
         completeJs = doAutoTest(logicStr);
@@ -354,7 +353,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
             }, 500);
 
         } else {
-            loadUrl(detailWeb, completeJs);
+            loadUrl(listWeb, completeJs);
         }
 
         resetBuyAcountMap();
@@ -591,7 +590,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
 
 
                 //TODO
-                int money = 10;
+                int money = BuyAmount;
 //                int money = fiboArr[position];
 //                if (i % 2 == 0) {
 //                    money = money * 2;
@@ -728,7 +727,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
     }
 
     private void goSc(WebView webView, WebView detailWeb) {
-        String logicStr = "goSc();";
+        String logicStr = "goSc("+scPosition+");";
         String completeJs = doAutoTest(logicStr);
         String logicCompareStr = "goCompareSc();";
         String completeCompareJs = doAutoTest(logicCompareStr);
@@ -737,7 +736,7 @@ public class WA_YundaFragment extends WA_BaseFragment {
     }
 
     private void goFt(WebView webView, WebView detailWeb) {
-        String logicStr = "goFt();";
+        String logicStr = "goFt("+ftPosition+");";
         String completeJs = doAutoTest(logicStr);
         String logicCompareStr = "goCompareFt();";
         String completeCompareJs = doAutoTest(logicCompareStr);

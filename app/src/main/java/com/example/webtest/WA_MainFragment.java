@@ -86,6 +86,16 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
     WebView waWebviewList;
     @Bind(R.id.tv_amount)
     TextView tvAmount;
+    @Bind(R.id.et_scPosition)
+    EditText etScPosition;
+    @Bind(R.id.et_ftPosition)
+    EditText etFtPosition;
+    @Bind(R.id.et_begin)
+    EditText etBegin;
+    @Bind(R.id.et_end)
+    EditText etEnd;
+    @Bind(R.id.et_beginCount)
+    EditText etBeginCount;
 
 
     private Button startBtn;
@@ -283,6 +293,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
     private int SelectedLimitPosition = 0;
     private int caculateNum = 5;
     private int learnPositon;
+    private int errorCount = 0;
     private int pollingTime = 300;
 
 
@@ -667,7 +678,6 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
             case R.id.btn_amount_rise:
                 amount = etAmount.getText().toString();
                 etAmount.setText((Integer.parseInt(amount) + 1) + "");
-                ConstantUtils.setOriginAmount(etAmount.getText().toString());
 
 
                 break;
@@ -677,7 +687,6 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                     return;
                 }
                 etAmount.setText((Integer.parseInt(amount) - 1) + "");
-                ConstantUtils.setOriginAmount(etAmount.getText().toString());
                 break;
             case R.id.btn_normal:
                 if (meiyou == -1 || meiyou == (numNoneNormal.length - 1)) {
@@ -779,6 +788,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         }
 
     }
+
 
     private void showResetDialog() {
 
@@ -934,7 +944,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                         if (!TextUtils.isEmpty(originalMap.get(i * 10 + j))) {
                             resultStr = resultStr + originalMap.get(i * 10 + j) +
                                     "----------------------------------------" + "\n";
-                            if (baseMap.get(i * 10 + j) >= ConstantValue.difBlank && baseMap.get(i * 10 + j) < ConstantValue.difEndBlank) {
+                            if (baseMap.get(i * 10 + j) >= difBeginNum && baseMap.get(i * 10 + j) < difEndNum) {
                                 difList.add(originalMap.get(i * 10 + j));
                             }
 
@@ -993,7 +1003,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 }
 
 
-                if (difList.size() > ConstantValue.difBeginCount) {
+                if (difList.size() > difBeginCount) {
                     learnResultStr2 = learnResultStr2 + "\n" + "不同位置:" + "\n";
                     getBlankBuyResult(difList, false, true);
                     for (int i = 0; i < difList.size(); i++) {
@@ -1591,9 +1601,11 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                 try {
                     gsonParse(response);
                     IS_GSON_RETRY = false;
+                    errorCount = 0;
                     Toast.makeText(getActivity(), "成功", Toast.LENGTH_LONG).show();
                     afterGetData();
                 } catch (Exception e) {
+                    errorFinish();
                     Toast.makeText(getActivity(), "请求频率过高", Toast.LENGTH_LONG).show();
                     CacheUtils.putCache(getActivity(), Url, "");
                     if (IS_SC && DateUtils.isInRange(9, 10, 23, 59)) {
@@ -1626,6 +1638,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                errorFinish();
                 Toast.makeText(getActivity(), "失败", Toast.LENGTH_LONG).show();
                 if (IS_AUTO_GET) {
                     UIUtils.postDelayed(new Runnable() {
@@ -1640,6 +1653,13 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         });
 
 
+    }
+
+    private void errorFinish() {
+        errorCount++;
+        if (errorCount > 50) {
+            getActivity().finish();
+        }
     }
 
     private void afterGetData() {
@@ -1830,6 +1850,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 
     protected void showComfirDialog(final boolean is_auto) {
 
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         if (is_auto) {
             if (btnLearn.getText().toString().equals(getResources().getString(R.string.AutoDeal))) {
@@ -1848,6 +1869,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                initBaseCostant();
                 dialogInterface.dismiss();
                 if (is_auto) {
 
@@ -1973,11 +1995,10 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         }
 
 //        setCustomDealData(ConstantValue.autoCustomSame20 + "", ConstantValue.autoCustomSame15 + "", ConstantValue.autoCustomSame10 + "", true, ConstantValue.CustomCoordinate);
-        ConstantUtils.setIsSc(IS_SC);
         setDealData(0, ConstantValue.autoSame20 + "", ConstantValue.autoSame15 + "", ConstantValue.autoSame10 + "", false, ConstantValue.ClassCoordinate);
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoSame20 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 0);
 //        delayDeal(ConstantValue.autoBlank15, ConstantValue.autoSame15 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_15), ConstantValue.TYPE_BLANK_15, 16);
-        delayDeal(ConstantValue.BIGGER_INT,ConstantValue.autoBlank10, ConstantValue.autoSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 2);
+        delayDeal(ConstantValue.BIGGER_INT, ConstantValue.autoBlank10, ConstantValue.autoSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 2);
 //        delayDeal(ConstantValue.BEGIN_INT,ConstantValue.autoBlank10, ConstantValue.autoCustomSame10 + ConstantUtils.getFabInt(IS_SC, false, ConstantValue.TYPE_BLANK_10), ConstantValue.TYPE_BLANK_10, 20);
 //        setDealData(48, ConstantValue.autoCustomSame20 + "", ConstantValue.autoCustomSame15 + "", ConstantValue.autoCustomSame10 + "", true, ConstantValue.ClassCoordinate);
 //        delayDeal(ConstantValue.autoBlank20, ConstantValue.autoCustomSame20 + ConstantUtils.getFabInt(IS_SC, true, ConstantValue.TYPE_BLANK_20), ConstantValue.TYPE_BLANK_20, 50);
@@ -2018,11 +2039,11 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                             }
 
                             Log.e(TAG, "checkDangerAllCount: " + allCount);
-                            dealType(0, blank, samem, type,beginInt);
+                            dealType(0, blank, samem, type, beginInt);
                         }
                     }, 2000);
                 } else {
-                    dealType(0, blank, samem, type,beginInt);
+                    dealType(0, blank, samem, type, beginInt);
                 }
             }
         }, time * 1000);
@@ -2035,7 +2056,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 
         etBlank.setText(10 + "");
         etSame.setText(ConstantValue.autoSame10 + "");
-        etDif.setText(ConstantValue.difBlank + "");
+        etDif.setText(difBeginNum + "");
 
         onClick(btnCaculate);
     }
@@ -2045,7 +2066,6 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         ConstantUtils.setAutoSame15(num2);
         ConstantUtils.setAutoSame10(num3);
         ConstantUtils.setAllCountCoordinate(coordinate + "");
-        ConstantUtils.setCUSTOM(custom);
     }
 
 
@@ -2062,7 +2082,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         cTerm = mList.get(0).getCTerm();
         etBlank.setText(blank + "");
         etSame.setText(same + "");
-        etDif.setText(ConstantValue.difBlank + "");
+        etDif.setText(difBeginNum+ "");
         this.beginInt = mBeginInt;
         UIUtils.postDelayed(new Runnable() {
             @Override
@@ -2084,7 +2104,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
 //                if (!ConstantUtils.isCUSTOM() && blanktype == ConstantValue.TYPE_BLANK_10 && !TextUtils.isEmpty(learnResultStr2) && !TextUtils.isEmpty(learnResultStr3)) {
 //                    Log.e(TAG, "num: " + "\n" + learnResultStr3);
 //                }
-                Log.e(TAG, LogTag + "---difBlank:" + ConstantValue.difBlank + "---difEndBlank:" + ConstantValue.difEndBlank + "\n" + learnResultStr2 + "\n" + learnResultStr3);
+                Log.e(TAG, LogTag + "---difBlank:" + difBeginNum + "---difEndBlank:" + difEndNum + "\n" + learnResultStr2 + "\n" + learnResultStr3);
 //                if (!DANGER) {
 //                    if (IS_SC) {
 //                        if (allCount > ConstantValue.BeginCoordinate) {
@@ -2181,11 +2201,6 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
         ConstantUtils.setAllCountCoordinate(etAllcount.getText().toString());
         ConstantUtils.setOriginAmount(etAmount.getText().toString());
 
-        if (btnCustom.getText().toString().equals(getResources().getString(R.string.custom))) {
-            ConstantUtils.setCUSTOM(true);
-        } else {
-            ConstantUtils.setCUSTOM(false);
-        }
     }
 
     private int[] sortInt(int[] arr) {
@@ -2199,6 +2214,37 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
             }
         }
         return arr;
+    }
+
+
+    //TODO
+    private void initBaseCostant() {
+        String scPositionStr = etScPosition.getText().toString();
+        String ftPositionStr = etFtPosition.getText().toString();
+
+        String beginStr = etBegin.getText().toString();
+        String endStr = etEnd.getText().toString();
+        String beginCount = etBeginCount.getText().toString();
+        String amountStr = etAmount.getText().toString();
+        if (!TextUtils.isEmpty(scPositionStr)) {
+            scPosition = Integer.parseInt(scPositionStr);
+        }
+        if (!TextUtils.isEmpty(ftPositionStr)) {
+            ftPosition = Integer.parseInt(ftPositionStr);
+        }
+
+        if (!TextUtils.isEmpty(beginStr)) {
+            difBeginNum = Integer.parseInt(beginStr);
+        }
+        if (!TextUtils.isEmpty(endStr)) {
+            difEndNum = Integer.parseInt(endStr);
+        }
+        if (!TextUtils.isEmpty(beginCount)) {
+            difBeginNum = Integer.parseInt(beginCount);
+        }
+        if (!TextUtils.isEmpty(amountStr)) {
+            BuyAmount = Integer.parseInt(amountStr);
+        }
     }
 
 }

@@ -1,8 +1,8 @@
-/** ×¢£º¸ÃJSÎÄ¼þÓÃÓÚ´æ·Å³£ÓÃº¯Êý£¬¹¦ÓÃÏà¹ØµÄº¯Êý·ÅÔÚJavaÎÄ¼þÖÐ×¢Èë*/
+/** ×¢ï¿½ï¿½ï¿½ï¿½JSï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Å³ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Javaï¿½Ä¼ï¿½ï¿½ï¿½×¢ï¿½ï¿½*/
 
 
-/** No.1 Ä£Äâµã»÷ÊÂ¼þ############################################################################################*/
-//Ä£Äâµã»÷ÊÂ¼þ
+/** No.1 Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½############################################################################################*/
+//Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 function doClickByRI(resId,time) {
  var btn = document.getElementById(resId);
  if(null!=btn){
@@ -14,12 +14,12 @@ function doClickByRI(resId,time) {
 
 function doClickByTag(){
   var itemli = document.getElementsByTagName("li");
-  localMethod.JI_showToast("length£º"+itemli.length);
+  localMethod.JI_showToast("lengthï¿½ï¿½"+itemli.length);
 
 }
 
-function goSc(){
-  var scBtn = document.getElementById('homeMenus').getElementsByTagName("a")[0];
+function goSc(position){
+  var scBtn = document.getElementById('homeMenus').getElementsByTagName("a")[position];
   scBtn.click();
   var money = document.getElementById('userinfo_money');
   localMethod.JI_LOG(money.innerHTML);
@@ -38,8 +38,8 @@ function goSc(){
 
 }
 
-function goFt(){
-  var scBtn = document.getElementById('homeMenus').getElementsByTagName("a")[1];
+function goFt(position){
+  var scBtn = document.getElementById('homeMenus').getElementsByTagName("a")[position];
   scBtn.click();
   var money = document.getElementById('userinfo_money');
   localMethod.JI_LOG(money.innerHTML);
@@ -135,7 +135,7 @@ function commitData(time){
 
 function doClickByCN(className,time) {
   var itemli = document.getElementsByTagName("li");
-  localMethod.JI_showToast("length£º"+itemli.length);
+  localMethod.JI_showToast("lengthï¿½ï¿½"+itemli.length);
 
   var btn = document.getElementsByClassName(className)[0];
   if(null!=btn){
@@ -145,7 +145,7 @@ function doClickByCN(className,time) {
     }
 }
 
-//Ä£Äâ´¥ÃþÊÂ¼þ
+//Ä£ï¿½â´¥ï¿½ï¿½ï¿½Â¼ï¿½
 function doTapByRI(resId,index) {
    if(null==index){index=0;}
    $("#"+resId).eq(index).trigger("tap");
@@ -156,7 +156,7 @@ function doTapByCN(className,index) {
   $("."+className).eq(index).trigger("tap")
 }
 
-//¸ù¾Ý¸¸¿Ø¼þ²éÕÒ×Ó¿Ø¼þÔÙ´¥Ãþ
+//ï¿½ï¿½ï¿½Ý¸ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿Ø¼ï¿½ï¿½Ù´ï¿½ï¿½ï¿½
 function doTapByParentCN(parentCN,className,index) {
   if(null==index){index=0;}
   $("."+parentCN).children("."+className) .eq(index).trigger("tap");
@@ -168,7 +168,7 @@ function doTapForScanGoods(parentCN,index) {
 }
 
 
-/** No.2 ÊäÈëÎÄ±¾ÐÅÏ¢ÖÁÊäÈë¿òÖÐ############################################################################################*/
+/** No.2 ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½############################################################################################*/
 function doInputByRI(resId,context,time) {
    var text = document.getElementById(resId);
     setTimeout(function(){
@@ -184,7 +184,7 @@ function doInputByCN(className,context,time) {
 }
 
 
-/** No.3 »ñÈ¡¿Ø¼þµÄÎÄ±¾ÐÅÏ¢###########################################################################################*/
+/** No.3 ï¿½ï¿½È¡ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½Ï¢###########################################################################################*/
 function doGetTextByRI(resId) {
     var text = document.getElementById(resId);
     return text.value;
