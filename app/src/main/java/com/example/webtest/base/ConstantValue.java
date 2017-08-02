@@ -12,7 +12,7 @@ public interface ConstantValue {
     public int autoSame10 = 100;
     public int difBlank = 28;
     public int difEndBlank = 50;
-    public int difBeginCount = 5;
+    public int difBeginCount = 3;
     public int AllCountCoordinate = 1;
     public int ClassCoordinate = 7;
     public int fabMax = 6;
