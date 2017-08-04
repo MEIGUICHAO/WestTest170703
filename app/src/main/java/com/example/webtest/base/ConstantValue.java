@@ -10,9 +10,9 @@ public interface ConstantValue {
     public int autoSame20 = 100;
     public int autoSame15 = 100;
     public int autoSame10 = 100;
-    public int difBlank = 28;
-    public int difEndBlank = 50;
-    public int difBeginCount = 3;
+    public int difBlank = 15;
+    public int difEndBlank = 23;
+    public int difBeginCount = 0;
     public int AllCountCoordinate = 1;
     public int ClassCoordinate = 7;
     public int fabMax = 6;

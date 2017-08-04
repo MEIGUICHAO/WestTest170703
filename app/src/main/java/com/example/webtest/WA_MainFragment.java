@@ -944,7 +944,7 @@ public class WA_MainFragment extends WA_YundaFragment implements View.OnClickLis
                         if (!TextUtils.isEmpty(originalMap.get(i * 10 + j))) {
                             resultStr = resultStr + originalMap.get(i * 10 + j) +
                                     "----------------------------------------" + "\n";
-                            if (baseMap.get(i * 10 + j) >= difBeginNum && baseMap.get(i * 10 + j) < difEndNum) {
+                            if (baseMap.get(i * 10 + j) >= difBeginNum && baseMap.get(i * 10 + j) <= difEndNum) {
                                 difList.add(originalMap.get(i * 10 + j));
                             }
 

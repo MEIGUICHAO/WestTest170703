@@ -91,6 +91,10 @@ function goCompareFt(){
           localMethod.JI_showToast("itema:"+itema.length);
           if(itema.length<100){
             goCompareFt();
+
+    setTimeout(function(){
+
+  var btn = document.getElementsByClassName("layui-layer-btn0");
           }
       },1500);
   },500);
@@ -98,10 +102,6 @@ function goCompareFt(){
 
 
 function doComfir(){
-
-    setTimeout(function(){
-
-  var btn = document.getElementsByClassName("layui-layer-btn0");
     localMethod.JI_showToast("btn:"+btn.length);
     btn[0].click();
         },3000);
